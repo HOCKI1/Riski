@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{A4720F4C-C044-3385-94FC-EDC3DB675DED}</ProjectGuid>
+    <ProjectGuid>{B0730F3F-9038-F92A-122C-9CB7688BED68}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -56,15 +56,14 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Pisel.cs" />
     <Compile Include="Assets\Scripts\Move.cs" />
     <Compile Include="Assets\Scripts\PlatformerControl.cs" />
     <Compile Include="Assets\Scripts\MotherScript.cs" />
     <Compile Include="Assets\Scripts\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\Sounds.cs" />
     <Compile Include="Assets\Scripts\Hand.cs" />
-    <Compile Include="Assets\Scripts\cfsds.cs" />
     <Compile Include="Assets\Scripts\Menu.cs" />
+    <Compile Include="Assets\Scripts\Lightswitch.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\PolygonPrototype\Shaders\Prototype_Glass_Global.shader" />
@@ -717,7 +716,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="AllIn1SpriteShaderAssembly.csproj">
-      <Project>{F6CB8A6C-3A50-A10B-1D18-E2628D9C97B8}</Project>
+      <Project>{3DB77E35-2E97-DEB6-F2FB-FEA1302B61DF}</Project>
       <Name>AllIn1SpriteShaderAssembly</Name>
     </ProjectReference>
   </ItemGroup>
