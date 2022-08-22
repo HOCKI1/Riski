@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -7,45 +6,55 @@ using UnityEngine.SceneManagement;
 public class MotherScript : MonoBehaviour
 {
     [Header("Points")]
+    
     bool Points = true;
-    public Slider slider;
-    public float TimePoint;
+    [SerializeField] Slider slider;
+    [SerializeField] float TimePoint;
     [Header("Timer")]
-    public Text hours;
-    public float hous;
-    public int Final;
+    [SerializeField] Text hours;
+    [SerializeField] float hous;
+    [SerializeField] int Final;
     [Header("Animators")]
-    public Animator anim;
-    public Animator anim2;
-    public Animator anim3;
-    public Animator anim4;
-    public Animator anim5;
-    public Animator anim6;
+    [SerializeField] Animator anim;
+    [SerializeField] Animator anim2;
+    [SerializeField] Animator anim3;
+    [SerializeField] Animator anim4;
+    [SerializeField] Animator anim5;
+    [SerializeField] Animator anim6;
+    [SerializeField] Animator anim7;
+    [SerializeField] Animator anim8;
     [Header("RandomInt")]
-    public float intrandom;
+    [SerializeField] float intrandom;
     [Header("ButtonsOber")]
-    public GameObject Obernut;
-    public GameObject Obernut2;
+    [SerializeField] Button Obernut;
+    [SerializeField] GameObject ObernutG;
+    [SerializeField] Button Obernut2;
+    [SerializeField] GameObject ObernutG2;
     [Header("ButtonsBed")]
-    public GameObject Bed;
-    public GameObject Bed2;
+    [SerializeField] Button Bed;
+    [SerializeField] GameObject BedG;
+    [SerializeField] Button Bed2;
+    [SerializeField] GameObject BedG2;
     [Header("Camerabut")]
-    public GameObject cam;
-    public GameObject cam2;
+    [SerializeField] Button cam;
+    [SerializeField] GameObject camG;
+    [SerializeField] Button cam2;
+    [SerializeField] GameObject camG2;
+    [SerializeField] GameObject blacks;
     [Header("monitorBut")]
-    public GameObject Mon;
+    [SerializeField] Button Mon;
     [Header("Player")]
-    public GameObject Player;
-    [Header("ScreansCam")]
-    public GameObject Screen1;
-    public GameObject Screen2;
-    public GameObject Screen3;
-    public GameObject Screen4;
-    public GameObject Screen5;
-    public GameObject Screen6;
+    [SerializeField] GameObject Player;
     [Header("telefon But")]
-    public GameObject Buttont;
-    public AudioSource Mobil;
+    [SerializeField] Button Buttont;
+    
+    [SerializeField] AudioSource Mobil;
+    [Header("AudioSource")]
+    [SerializeField] AudioSource one;
+    [SerializeField] AudioSource two;
+    [SerializeField] AudioSource three;
+    [SerializeField] AudioSource four;
+    //[SerializeField] AudioSource five;
     [Header("Bools")]
     bool offM;
     bool PlayerInBed;
@@ -61,12 +70,17 @@ public class MotherScript : MonoBehaviour
 
     void Start()
     {
+        
+
         StartCoroutine("Mobila");
         
-        PlayerInBed = false;
-        cam2.SetActive(false);
-        Obernut2.SetActive(false);
-        Bed2.SetActive(false);
+        if(PlayerPrefs.HasKey("Sound")) {
+            one.volume = PlayerPrefs.GetFloat("Sound", 0.5f);
+            two.volume = PlayerPrefs.GetFloat("Sound", 0.5f);
+            three.volume = PlayerPrefs.GetFloat("Sound", 0.5f);
+            four.volume = PlayerPrefs.GetFloat("Sound", 0.5f);
+            //five.volume = PlayerPrefs.GetFloat("Sound", 0.5f);
+        }
     }
     private void Update()
     {
@@ -92,15 +106,15 @@ public class MotherScript : MonoBehaviour
         }
         if (Motherintheroom == true)
         {
-            Mon.GetComponent<Button>().interactable = false;
-            cam2.GetComponent<Button>().interactable = false;
-            cam.GetComponent<Button>().interactable = false;
-            Bed2.GetComponent<Button>().interactable = false;
-            Bed.GetComponent<Button>().interactable = false;
-            Obernut2.GetComponent<Button>().interactable = false;
-            Obernut.GetComponent<Button>().interactable = false;
+            Mon.interactable = false;
+            cam2.interactable = false;
+            cam.interactable = false;
+            Bed2.interactable = false;
+            Bed.interactable = false;
+            Obernut2.interactable = false;
+            Obernut.interactable = false;
         }
-        if (slider.value == 0) { SceneManager.LoadScene(2); }
+        if (slider.value == 0) { SceneManager.LoadScene(0); }
         
         switch (Final)
         {
@@ -126,7 +140,7 @@ public class MotherScript : MonoBehaviour
 
             case 6:
                 SceneManager.LoadScene(3);
-                print("æîñêà");
+                print("ï¿½ï¿½ï¿½ï¿½ï¿½");
                 break;
         }
     }
@@ -148,16 +162,16 @@ public class MotherScript : MonoBehaviour
             print(number);
             if (number == 13 || number == 14 || number == 12)
             {
-                anim3.SetTrigger("vhs");
-                Screen2.SetActive(true);
-                Screen3.SetActive(false);
-                Screen1.SetActive(false);
-                Screen4.SetActive(false);
-                Screen5.SetActive(false);
-                Screen6.SetActive(false);
+                blacks.SetActive(true);
+                yield return new WaitForSeconds(0.7f);
+                anim8.SetTrigger("Lamp");
+                anim7.SetTrigger("la");
+                anim5.SetTrigger("Next1");
                 StartCoroutine("MotherS");
+                yield return new WaitForSeconds(0.7f);
+                blacks.SetActive(false);
                 StopCoroutine("Mother");
-
+                
             }
         }
     }
@@ -170,15 +184,16 @@ public class MotherScript : MonoBehaviour
             print(number);
             if (number == 15)
             {
-                anim3.SetTrigger("vhs");
-                Screen3.SetActive(true);
-                Screen2.SetActive(false);
-                Screen1.SetActive(false);
-                Screen4.SetActive(false);
-                Screen5.SetActive(false);
-                Screen6.SetActive(false);
+                blacks.SetActive(true);
+                yield return new WaitForSeconds(0.7f);
+                anim8.SetTrigger("Lamp");
+                anim7.SetTrigger("la");
+                anim5.SetTrigger("Next2");
                 StartCoroutine("MotherS2");
+                yield return new WaitForSeconds(0.7f);
+                blacks.SetActive(false);
                 StopCoroutine("MotherS");
+                
 
             }
         }
@@ -192,27 +207,29 @@ public class MotherScript : MonoBehaviour
             print(number);
             if (number == 12)
             {
-                anim3.SetTrigger("vhs");
-                Screen4.SetActive(true);
-                Screen3.SetActive(false);
-                Screen2.SetActive(false);
-                Screen1.SetActive(false);
-                Screen5.SetActive(false);
-                Screen6.SetActive(false);
+                blacks.SetActive(true);
+                yield return new WaitForSeconds(0.7f);
+                anim8.SetTrigger("Lamp");
+                anim7.SetTrigger("la");
+                anim5.SetTrigger("Next3");
                 StartCoroutine("MotherS3");
+                yield return new WaitForSeconds(0.7f);
+                blacks.SetActive(false);
                 StopCoroutine("MotherS2");
+                
             }
             if (number == 15)
             {
-                anim3.SetTrigger("vhs");
-                Screen1.SetActive(true);
-                Screen2.SetActive(false);
-                Screen3.SetActive(false);
-                Screen4.SetActive(false);
-                Screen5.SetActive(false);
-                Screen6.SetActive(false);
+                blacks.SetActive(true);
+                yield return new WaitForSeconds(0.7f);
+                anim8.SetTrigger("Lamp");
+                anim7.SetTrigger("la");
+                anim5.SetTrigger("Back2");
                 StartCoroutine("Mother");
+                yield return new WaitForSeconds(0.7f);
+                blacks.SetActive(false);
                 StopCoroutine("MotherS2");
+
             }
         }
     }
@@ -225,15 +242,16 @@ public class MotherScript : MonoBehaviour
             print(number);
             if (number == 17)
             {
-                anim3.SetTrigger("vhs");
-                Screen5.SetActive(true);
-                Screen4.SetActive(false);
-                Screen1.SetActive(false);
-                Screen2.SetActive(false);
-                Screen3.SetActive(false);
-                Screen6.SetActive(false);
+                blacks.SetActive(true);
+                yield return new WaitForSeconds(0.7f);
+                anim8.SetTrigger("Lamp");
+                anim7.SetTrigger("la");
+                anim5.SetTrigger("Next4");
                 StartCoroutine("MotherS4");
+                yield return new WaitForSeconds(0.7f);
+                blacks.SetActive(false);
                 StopCoroutine("MotherS3");
+
             }
         }
     }
@@ -246,9 +264,15 @@ public class MotherScript : MonoBehaviour
             print(number);
             if (number == 24)
             {
-                anim3.SetTrigger("vhs");
+                blacks.SetActive(true);
+                yield return new WaitForSeconds(0.7f);
+                anim8.SetTrigger("Lamp");
+                anim7.SetTrigger("la");
                 StartCoroutine("MotherS5");
+                yield return new WaitForSeconds(0.7f);
+                blacks.SetActive(false);
                 StopCoroutine("MotherS4");
+
             }
            
         }
@@ -260,18 +284,19 @@ public class MotherScript : MonoBehaviour
             yield return new WaitForSeconds(intrandom);
             var number = Random.Range(1, 50);
             print(number);
-            if (number == 47)
+            if (number == 43)
             {
-                anim3.SetTrigger("vhs");
-                Screen6.SetActive(true);
-                Screen5.SetActive(false);
-                Screen1.SetActive(false);
-                Screen2.SetActive(false);
-                Screen3.SetActive(false);
-                Screen4.SetActive(false);
+                blacks.SetActive(true);
+                yield return new WaitForSeconds(0.7f);
+                anim8.SetTrigger("Lamp");
+                anim7.SetTrigger("la");
+                anim5.SetTrigger("Next5");
                 StartCoroutine("MotherWalk");
+                yield return new WaitForSeconds(0.7f);
+                blacks.SetActive(false);
                 StopCoroutine("MotherS5");
 
+                
             }
         }
     }
@@ -280,17 +305,20 @@ public class MotherScript : MonoBehaviour
         while (true)
         {
             anim5.SetTrigger("wal");
+            anim8.SetTrigger("Lamp");
+            anim7.SetTrigger("la");
+
             yield return new WaitForSeconds(11);
             Motherintheroom = true;
+            
             if (offM == true && PlayerInBed == true)
             {
                 anim5.SetTrigger("Idle");
                 yield return new WaitForSeconds(5);
                 anim5.SetTrigger("idle2");
                 Motherintheroom = false;
-                Bed2.GetComponent<Button>().interactable = true;
-                Screen6.SetActive(false);
-                Screen1.SetActive(true);
+                Bed2.interactable = true;
+
                 StartCoroutine("Mother");
                 StopCoroutine("MotherWalk");
             }
@@ -299,7 +327,7 @@ public class MotherScript : MonoBehaviour
                 anim5.SetTrigger("booo");
                 anim.SetTrigger("boo");
                 yield return new WaitForSeconds(3);
-                SceneManager.LoadScene(1);
+                SceneManager.LoadScene(0);
             }
         }
     }
@@ -312,7 +340,7 @@ public class MotherScript : MonoBehaviour
         Mobil.Play();
         if(vstal == false)
         {
-            Buttont.GetComponent<Button>().interactable = true;
+            Buttont.interactable = true;
         }
         StartCoroutine("Mobilavo");
     }
@@ -328,7 +356,10 @@ public class MotherScript : MonoBehaviour
             StopCoroutine("MotherS4");
             StopCoroutine("MotherS5");
             StartCoroutine("MotherWalk");
-            Buttont.GetComponent<Button>().interactable = false;
+            Buttont.interactable = false;
+            mobilasvonit = false;
+            anim6.SetTrigger("d");
+            Mobil.Stop();
         }
         StartCoroutine("Mobila");
         StopCoroutine("Mobilavo");
@@ -337,48 +368,48 @@ public class MotherScript : MonoBehaviour
     {
         
         anim.SetTrigger("Abort");
-        Obernut.SetActive(false);
-        Obernut2.SetActive(true);
+        ObernutG.SetActive(false);
+        ObernutG2.SetActive(true);
         obernut = true;
         vstal = true;
     }
     public void Ober2()
     {
         anim.SetTrigger("abort 2");
-        Obernut2.SetActive(false);
-        Obernut.SetActive(true);
+        ObernutG2.SetActive(false);
+        ObernutG.SetActive(true);
         obernut = false;
         vstal = false;
     }
     public void Bed1()
     {
         anim.SetTrigger("Hide");
-        Bed.SetActive(false);
-        Bed2.SetActive(true);
+        BedG.SetActive(false);
+        BedG2.SetActive(true);
         bed = true;
         vstal = true;
     }
     public void Bed3()
     {
         anim.SetTrigger("Hide2");
-        Bed.SetActive(true);
-        Bed2.SetActive(false);
+        BedG.SetActive(true);
+        BedG2.SetActive(false);
         bed = false;
         vstal = false;
     }
-    public void Ñam1()
+    public void Cam1()
     {
         anim.SetTrigger("check");
-        cam2.SetActive(true);
-        cam.SetActive(false);
+        camG2.SetActive(true);
+        camG.SetActive(false);
         camm = true;
         vstal = true;
     }
     public void Cam3()
     {
         anim.SetTrigger("check2");
-        cam2.SetActive(false);
-        cam.SetActive(true);
+        camG2.SetActive(false);
+        camG.SetActive(true);
         camm = false;
         vstal = false;
     }
@@ -388,7 +419,6 @@ public class MotherScript : MonoBehaviour
         {           
             anim.SetTrigger("mon"); 
             anim4.SetTrigger("go");
-
         }
         else
         {
@@ -396,7 +426,6 @@ public class MotherScript : MonoBehaviour
             anim4.SetTrigger("go2");
             anim.SetTrigger("mon");
 
-           
         }      
     }
     public void noutclose()
@@ -411,7 +440,7 @@ public class MotherScript : MonoBehaviour
     {
         Mobil.Stop();
         mobilasvonit = false;
-        Buttont.GetComponent<Button>().interactable = false;
+        Buttont.interactable = false;
         anim4.SetTrigger("mobil");
         anim.SetTrigger("Mobil");
         anim6.SetTrigger("d");
@@ -421,52 +450,52 @@ public class MotherScript : MonoBehaviour
     {
         if(bed == true && camm == false && obernut == false)
         {
-            Bed2.GetComponent<Button>().interactable = true;
-            cam2.GetComponent<Button>().interactable = false;
-            cam.GetComponent<Button>().interactable = false;
-            Bed.GetComponent<Button>().interactable = false;
-            Obernut2.GetComponent<Button>().interactable = false;
-            Obernut.GetComponent<Button>().interactable = false;
-            Buttont.GetComponent<Button>().interactable = false;
-            Mon.GetComponent<Button>().interactable = false;
+            Bed2.interactable = true;
+            cam2.interactable = false;
+            cam.interactable = false;
+            Bed.interactable = false;
+            Obernut2.interactable = false;
+            Obernut.interactable = false;
+            Buttont.interactable = false;
+            Mon.interactable = false;
             Player.SetActive(false);
         }
         if(bed == false && camm == false && obernut == false)
         {
-            Bed2.GetComponent<Button>().interactable = false;
-            cam2.GetComponent<Button>().interactable = false;
-            cam.GetComponent<Button>().interactable = false;
-            Bed.GetComponent<Button>().interactable = false;
-            Obernut2.GetComponent<Button>().interactable = false;
-            Obernut.GetComponent<Button>().interactable = false;
-            Buttont.GetComponent<Button>().interactable = false;
-            Mon.GetComponent<Button>().interactable = false;
+            Bed2.interactable = false;
+            cam2.interactable = false;
+            cam.interactable = false;
+            Bed.interactable = false;
+            Obernut2.interactable = false;
+            Obernut.interactable = false;
+            Buttont.interactable = false;
+            Mon.interactable = false;
             Points = false;
             Player.SetActive(false);
         }
         if(camm == true && bed == false && obernut == false)
         {
-            Bed2.GetComponent<Button>().interactable = false;
-            cam2.GetComponent<Button>().interactable = true;
-            cam.GetComponent<Button>().interactable = false;
-            Bed.GetComponent<Button>().interactable = false;
-            Obernut2.GetComponent<Button>().interactable = false;
-            Obernut.GetComponent<Button>().interactable = false;
-            Buttont.GetComponent<Button>().interactable = false;
-            Mon.GetComponent<Button>().interactable = false;
+            Bed2.interactable = false;
+            cam2.interactable = true;
+            cam.interactable = false;
+            Bed.interactable = false;
+            Obernut2.interactable = false;
+            Obernut.interactable = false;
+            Buttont.interactable = false;
+            Mon.interactable = false;
             Points = false;
             Player.SetActive(false);
         }
         if(obernut == true && bed == false && camm == false)
         {
-            Bed2.GetComponent<Button>().interactable = false;
-            cam2.GetComponent<Button>().interactable = false;
-            cam.GetComponent<Button>().interactable = false;
-            Bed.GetComponent<Button>().interactable = false;
-            Obernut2.GetComponent<Button>().interactable = true;
-            Obernut.GetComponent<Button>().interactable = false;
-            Buttont.GetComponent<Button>().interactable = false;
-            Mon.GetComponent<Button>().interactable = false;
+            Bed2.interactable = false;
+            cam2.interactable = false;
+            cam.interactable = false;
+            Bed.interactable = false;
+            Obernut2.interactable = true;
+            Obernut.interactable = false;
+            Buttont.interactable = false;
+            Mon.interactable = false;
             Points = false;
             Player.SetActive(false);
         }
@@ -485,19 +514,19 @@ public class MotherScript : MonoBehaviour
         }
         if (mobilasvonit == true)
         {
-            Buttont.GetComponent<Button>().interactable = true;
+            Buttont.interactable = true;
         }
         else
         {
-            Buttont.GetComponent<Button>().interactable = false;
+            Buttont.interactable = false;
         }
-        Bed2.GetComponent<Button>().interactable = false;
-        cam2.GetComponent<Button>().interactable = false;
-        cam.GetComponent<Button>().interactable = true;
-        Bed.GetComponent<Button>().interactable = true;
-        Obernut2.GetComponent<Button>().interactable = false;
-        Obernut.GetComponent<Button>().interactable = true;      
-        Mon.GetComponent<Button>().interactable = true;
+        Bed2.interactable = false;
+        cam2.interactable = false;
+        cam.interactable = true;
+        Bed.interactable = true;
+        Obernut2.interactable = false;
+        Obernut.interactable = true;      
+        Mon.interactable = true;
         
         Player.SetActive(true);
     }

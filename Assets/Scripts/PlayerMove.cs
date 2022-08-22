@@ -1,47 +1,92 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMove : MonoBehaviour
 {
-
-    public Animator animator;
+    [SerializeField] SpriteRenderer sp;
     private int state;
 
+    [SerializeField] float speed;
+    [SerializeField] float JumpForce;
 
-    //Добавляем ссылку на компонент CharacterController в инспектор
-    [SerializeField] CharacterController controller;
-    //Добавляем ссылку на переменную speed (скорость игрока) в инспекторе
-    [SerializeField] float speed = 5f;
-    //Создаем переменную гравитации для падения
-    [SerializeField] float gravity = 50;
-    //Создаем переменную для силы прыжка
-    [SerializeField] float jumpForce = 40;
-    //Создаем переменную для направления движения игрока
-    private Vector3 direction;
+    Animator animator;
+    Rigidbody rb;
+    [SerializeField] bool isGrounded;
 
-
-
+    Vector3 direction;
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody>();
+    }
     void Update()
     {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
         
+        direction = transform.TransformDirection(horizontal, 0, vertical);
+        if (isGrounded == true && Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.velocity = new Vector3(0,15,0);
+        }
+
+
+        if (horizontal >= .1)
+        {
+            sp.flipX = true;
+        }
+        if (horizontal <= -.1)
+        {
+            sp.flipX = false;
+        }
+        if (isGrounded == false)
+        {           
+            if (horizontal >= .1)
+            {
+                state = 2;
+            }
+            if (horizontal <= -.1)
+            {
+                state = 2;
+            }
+            if (horizontal == 0)
+            {
+                state = 1;
+            }
+        
+        }
+       
         animator.SetInteger("state", state);
-        MoveLeftAndRight();
+    }
+    void FixedUpdate()
+    {
+        rb.MovePosition(transform.position + speed * direction * Time.deltaTime);
+    }  
+
+
+    void OnCollisionStay(Collision other)
+    {
+        if(other.transform.tag == "Pol")
+        {
+            isGrounded = true;
+        }
+        
+
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.transform.tag == "Damage")
+        {
+            transform.position = new Vector3(42.57f, 19.56f);
+        }
     }
 
-    void MoveLeftAndRight()
+
+    void OnCollisionExit(Collision other)
     {
-        if(Input.GetAxis("Horizontal") > 0)
-        {
-            state = 3;
-        }
-        if (Input.GetAxis("Horizontal") > 0)
-        {
-            state = 2;
-        }
-        if (Input.GetAxis("Horizontal") == 0)
-        {
-            state = 1;
-        }
+        isGrounded = false;
+        state = 3;
+        StopCoroutine("gravitu");
     }
 }
+

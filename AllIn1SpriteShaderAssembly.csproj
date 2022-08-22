@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{F6CB8A6C-3A50-A10B-1D18-E2628D9C97B8}</ProjectGuid>
+    <ProjectGuid>{8538DE12-16F8-5AB4-6D34-43DA1C2EB745}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>AllIn1SpriteShaderAssembly</AssemblyName>
@@ -53,29 +53,29 @@
     <UnityVersion>2020.3.28f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+    <Analyzer Include="C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AllIn1SpriteShader\Editor\AllIn1ShaderGradientDrawer.cs" />
+    <Compile Include="Assets\AllIn1SpriteShader\Demo\Scripts\Demo2AutoScroll.cs" />
+    <Compile Include="Assets\AllIn1SpriteShader\Demo\Scripts\DemoRepositionExpositor.cs" />
+    <Compile Include="Assets\AllIn1SpriteShader\Scripts\All1CreateUnifiedOutline.cs" />
+    <Compile Include="Assets\AllIn1SpriteShader\Demo\Scripts\DemoRandomColorSwap.cs" />
+    <Compile Include="Assets\AllIn1SpriteShader\Editor\AllIn1SpriteShaderUiMaskMaterialInspector.cs" />
+    <Compile Include="Assets\AllIn1SpriteShader\Demo\Scripts\AllIn1ScrollProperty.cs" />
+    <Compile Include="Assets\AllIn1SpriteShader\Scripts\SetAtlasUvs.cs" />
+    <Compile Include="Assets\AllIn1SpriteShader\Scripts\SetGlobalTimeNew.cs" />
+    <Compile Include="Assets\AllIn1SpriteShader\Demo\Scripts\All1TextureOffsetOverTime.cs" />
+    <Compile Include="Assets\AllIn1SpriteShader\Demo\Scripts\All1ShaderDemoController.cs" />
+    <Compile Include="Assets\AllIn1SpriteShader\Scripts\AllIn1ShaderWindow.cs" />
+    <Compile Include="Assets\AllIn1SpriteShader\Scripts\AllIn1Shader.cs" />
+    <Compile Include="Assets\AllIn1SpriteShader\Editor\AllIn1ShaderScriptEditor.cs" />
     <Compile Include="Assets\AllIn1SpriteShader\Scripts\RandomSeed.cs" />
     <Compile Include="Assets\AllIn1SpriteShader\Demo\Scripts\DemoItem.cs" />
-    <Compile Include="Assets\AllIn1SpriteShader\Scripts\SetAtlasUvs.cs" />
-    <Compile Include="Assets\AllIn1SpriteShader\Editor\AllIn1ShaderGradientDrawer.cs" />
-    <Compile Include="Assets\AllIn1SpriteShader\Editor\AllIn1SpriteShaderUiMaskMaterialInspector.cs" />
-    <Compile Include="Assets\AllIn1SpriteShader\Editor\AllIn1ShaderScriptEditor.cs" />
-    <Compile Include="Assets\AllIn1SpriteShader\Scripts\SetGlobalTimeNew.cs" />
-    <Compile Include="Assets\AllIn1SpriteShader\Demo\Scripts\DemoRepositionExpositor.cs" />
-    <Compile Include="Assets\AllIn1SpriteShader\Scripts\AllIn1ShaderWindow.cs" />
-    <Compile Include="Assets\AllIn1SpriteShader\Demo\Scripts\All1ShaderDemoController.cs" />
-    <Compile Include="Assets\AllIn1SpriteShader\Scripts\All1CreateUnifiedOutline.cs" />
-    <Compile Include="Assets\AllIn1SpriteShader\Demo\Scripts\All1TextureOffsetOverTime.cs" />
-    <Compile Include="Assets\AllIn1SpriteShader\Demo\Scripts\DemoRandomColorSwap.cs" />
-    <Compile Include="Assets\AllIn1SpriteShader\Demo\Scripts\DemoCamera.cs" />
-    <Compile Include="Assets\AllIn1SpriteShader\Demo\Scripts\Demo2AutoScroll.cs" />
-    <Compile Include="Assets\AllIn1SpriteShader\Editor\AllIn1SpriteShaderMaterialInspector.cs" />
     <Compile Include="Assets\AllIn1SpriteShader\Demo\Scripts\DemoCircleExpositor.cs" />
+    <Compile Include="Assets\AllIn1SpriteShader\Demo\Scripts\DemoCamera.cs" />
+    <Compile Include="Assets\AllIn1SpriteShader\Editor\AllIn1SpriteShaderMaterialInspector.cs" />
     <Compile Include="Assets\AllIn1SpriteShader\Scripts\SetGlobalTimeUnity2018.cs" />
-    <Compile Include="Assets\AllIn1SpriteShader\Scripts\AllIn1Shader.cs" />
-    <Compile Include="Assets\AllIn1SpriteShader\Demo\Scripts\AllIn1ScrollProperty.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\AllIn1SpriteShader\!Start_Here.txt" />
@@ -338,9 +338,6 @@
     <Reference Include="UnityEditor.Lumin.Extensions">
       <HintPath>D:\Unity\2020.3.28f1\Editor\Data\PlaybackEngines\LuminSupport\UnityEditor.Lumin.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="SyntaxTree.VisualStudio.Unity.Bridge">
-      <HintPath>C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Editor\SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.15.7\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -352,6 +349,9 @@
     </Reference>
     <Reference Include="log4netPlastic">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@1.15.7\Lib\Editor\PlasticSCM\log4netPlastic.dll</HintPath>
+    </Reference>
+    <Reference Include="HardLight2D">
+      <HintPath>Assets\HardLight2D\Scripts\HardLight2D.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\Newtonsoft.Json.dll</HintPath>

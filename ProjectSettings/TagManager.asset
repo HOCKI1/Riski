@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Death
   - PlayerPlatformer
+  - flat
+  - Enemy
+  - Damage
+  - Pol
   layers:
   - Default
   - TransparentFX

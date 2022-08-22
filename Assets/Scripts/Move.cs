@@ -1,68 +1,110 @@
 using UnityEngine;
+using System.Collections;
 
 public class Move : MonoBehaviour
 {
-
+    [SerializeField] SpriteRenderer sp;
     private int state;
-    //Добавляем ссылку на компонент CharacterController в инспектор
-    [SerializeField] CharacterController controller;
-    //Добавляем ссылку на переменную speed (скорость игрока) в инспекторе
+    [SerializeField] bool isGrounded;
+    
     [SerializeField] float speed = 5f;
-    //Создаем переменную гравитации для падения
+    
     [SerializeField] float gravity = 50;
-    //Создаем переменную для силы прыжка
+    
     [SerializeField] float jumpForce = 40;
     Animator animator;
-    //Создаем переменную для направления движения игрока
+    [SerializeField] Rigidbody rb;
+
+
     private Vector3 direction;
 
     void Start()
     {
         animator = GetComponent<Animator>();
     }
+    
     void Update()
     {
-        // moveHorizontal будет принимать значение -1 если нажата кнопка A, 1 если нажата D, 0 если эти кнопки не нажаты
+        // moveHorizontal пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ -1 пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ A, 1 пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ D, 0 пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
         float moveHorizontal = Input.GetAxis("Horizontal");
-        // moveVertical будет принимать значение -1 если нажата кнопка S, 1 если нажата W, 0 если эти кнопки не нажаты
-        //float moveVertical = Input.GetAxis("Vertical");
+        float moveVertical = Input.GetAxis("Vertical");
+        // moveVertical пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ -1 пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ S, 1 пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ W, 0 пїЅпїЅпїЅпїЅ пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ
 
-        
-        if (controller.isGrounded) //проверяем что мы неа земле (тема условий будет дальше)
+       
+        if (moveHorizontal >= .1)
         {
-            direction = new Vector3(moveHorizontal, 0/*, moveVertical*/);
-            //Дополнительно умножая его на скорость передвижения (преобразуя локальные координаты к глобальным)
-            if(moveHorizontal >= .1)
+            sp.flipX = true;
+        }
+        if (moveHorizontal <= -.1)
+        {
+            sp.flipX = false;
+        }
+        if (isGrounded == true) 
+        {
+            direction = new Vector3(moveHorizontal,  0, moveVertical);
+            
+            if (moveHorizontal >= .1)
             {
-                //transform.rotation = Quaternion.AngleAxis(0, Vector3.up);
                 state = 2;
             }
             if (moveHorizontal <= -.1)
             {
-                state = 3;
+                state = 2;
             }
             if(moveHorizontal == 0)
             {
                 state = 1;
             }
+
             direction = transform.TransformDirection(direction) * speed;
-
-            if (Input.GetKey(KeyCode.Space)) //Проверяем что нажали пробел для прыжка
+            if (Input.GetButton("Jump")) 
             {
-                direction.y = jumpForce;
-                
+                rb.velocity = new Vector3(0, jumpForce, 0);
+               
+                state = 3;
             }
-
-            //Этой строчкой мы осуществляем изменение положения игрока на основе вектора direction
-            //Time.deltaTime это количество секунд которое прошло с последнего кадра, для синхронизации по времени
-
         }
+        else
+        {
+            state = 3;
+        }
+        
         animator.SetInteger("state", state);
-        //Если будете добавлять что-то связанное с управлением, делайте это здесь
-
+        direction.x = moveHorizontal * speed;
+        direction.z = moveVertical * speed;
         direction.y -= gravity * Time.deltaTime;
-        controller.Move(direction * Time.deltaTime);
+        //rb.AddRelativeForce(direction / speed, ForceMode.Impulse);
+        rb.velocity = new Vector3(direction.x, rb.velocity.y, direction.z);
+        
 
-
+    }
+    IEnumerator gravitu()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(3);
+            rb.velocity = new Vector3(0, -8, 0);
+        }
+    }
+    void OnCollisionStay(Collision other)
+    {
+        if (other.transform.tag == "Pol")
+        {
+            isGrounded = true;
+            StopCoroutine("gravitu");
+        }
+    }
+    void OnCollisionExit(Collision other)
+    {
+        isGrounded = false;
+        StartCoroutine("gravitu");
+        
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.transform.tag == "Damage")
+        {
+            transform.position = new Vector3(42.57f, 19.56f);
+        }
     }
 }

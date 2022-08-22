@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AllIn1SpriteShaderAssembly", "AllIn1SpriteShaderAssembly.csproj", "{8538DE12-16F8-5AB4-6D34-43DA1C2EB745}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{1A61BFA6-08AD-2820-CE62-488D3043A21E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "Assembly-CSharp-Editor.csproj", "{1CA2A6BA-0942-7C0B-4E3F-52B663ADB2FB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8538DE12-16F8-5AB4-6D34-43DA1C2EB745}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8538DE12-16F8-5AB4-6D34-43DA1C2EB745}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8538DE12-16F8-5AB4-6D34-43DA1C2EB745}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8538DE12-16F8-5AB4-6D34-43DA1C2EB745}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A61BFA6-08AD-2820-CE62-488D3043A21E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A61BFA6-08AD-2820-CE62-488D3043A21E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A61BFA6-08AD-2820-CE62-488D3043A21E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A61BFA6-08AD-2820-CE62-488D3043A21E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CA2A6BA-0942-7C0B-4E3F-52B663ADB2FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CA2A6BA-0942-7C0B-4E3F-52B663ADB2FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CA2A6BA-0942-7C0B-4E3F-52B663ADB2FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CA2A6BA-0942-7C0B-4E3F-52B663ADB2FB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
