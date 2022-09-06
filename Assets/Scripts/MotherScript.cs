@@ -54,6 +54,10 @@ public class MotherScript : MonoBehaviour
     [SerializeField] AudioSource two;
     [SerializeField] AudioSource three;
     [SerializeField] AudioSource four;
+    [Header("Cams")]
+    [SerializeField] GameObject Screncam1;
+    [SerializeField] GameObject Screncam2;
+    [SerializeField] GameObject Screncam3;
     //[SerializeField] AudioSource five;
     [Header("Bools")]
     bool offM;
@@ -84,6 +88,7 @@ public class MotherScript : MonoBehaviour
     }
     private void Update()
     {
+        
         hous += Time.deltaTime;
         offM = Hand.GetComponent<Hand>().offM;
         if (hous >= 80f)
@@ -142,6 +147,27 @@ public class MotherScript : MonoBehaviour
                 SceneManager.LoadScene(3);
                 print("�����");
                 break;
+        }
+        if (Input.GetKey(KeyCode.Alpha1)) 
+        {
+            Screncam1.SetActive(true);
+            Screncam2.SetActive(false);
+            Screncam3.SetActive(false);
+
+        }
+        if (Input.GetKey(KeyCode.Alpha2))
+        {
+            Screncam1.SetActive(false);
+            Screncam2.SetActive(true);
+            Screncam3.SetActive(false);
+
+        }
+        if (Input.GetKey(KeyCode.Alpha3))
+        {
+            Screncam1.SetActive(false);
+            Screncam2.SetActive(false);
+            Screncam3.SetActive(true);
+
         }
     }
     public void PIBT()
@@ -253,6 +279,222 @@ public class MotherScript : MonoBehaviour
                 StopCoroutine("MotherS3");
 
             }
+            if (number == 37)
+            {
+                blacks.SetActive(true);
+                yield return new WaitForSeconds(0.7f);
+                anim8.SetTrigger("Lamp");
+                anim7.SetTrigger("la");
+                anim5.SetTrigger("kit1");
+                StartCoroutine("MotherS4kit");
+                yield return new WaitForSeconds(0.7f);
+                blacks.SetActive(false);
+                StopCoroutine("MotherS3");
+
+            }
+            if (number == 27)
+            {
+                blacks.SetActive(true);
+                yield return new WaitForSeconds(0.7f);
+                anim8.SetTrigger("Lamp");
+                anim7.SetTrigger("la");
+                anim5.SetTrigger("tul1");
+                StartCoroutine("MotherS1tul");
+                yield return new WaitForSeconds(0.7f);
+                blacks.SetActive(false);
+                StopCoroutine("MotherS3");
+
+            }
+        }
+    }
+    IEnumerator MotherS3Kit()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(intrandom);
+            var number = Random.Range(1, 50);
+            print(number);
+            if (number == 41)
+            {
+                blacks.SetActive(true);
+                yield return new WaitForSeconds(0.7f);
+                anim8.SetTrigger("Lamp");
+                anim7.SetTrigger("la");
+                anim5.SetTrigger("kit2");
+                StartCoroutine("MotherS4Kit");
+                yield return new WaitForSeconds(0.7f);
+                blacks.SetActive(false);
+                StopCoroutine("MotherS3Kit");
+
+            }
+           
+        }
+    }
+    IEnumerator MotherS4Kit()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(intrandom);
+            var number = Random.Range(1, 50);
+            print(number);
+            if (number == 31)
+            {
+                blacks.SetActive(true);
+                yield return new WaitForSeconds(0.7f);
+                anim8.SetTrigger("Lamp");
+                anim7.SetTrigger("la");
+                anim5.SetTrigger("kit3");
+                StartCoroutine("MotherS5Kit");
+                yield return new WaitForSeconds(0.7f);
+                blacks.SetActive(false);
+                StopCoroutine("MotherS4Kit");
+
+            }
+
+        }
+    }
+    IEnumerator MotherS5Kit()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(intrandom);
+            var number = Random.Range(1, 50);
+            print(number);
+            if (number == 31)
+            {
+                blacks.SetActive(true);
+                yield return new WaitForSeconds(0.7f);
+                anim8.SetTrigger("Lamp");
+                anim7.SetTrigger("la");
+                anim5.SetTrigger("tul1");
+                StartCoroutine("MotherS1tul");
+                yield return new WaitForSeconds(0.7f);
+                blacks.SetActive(false);
+                StopCoroutine("MotherS5Kit");
+
+            }
+            if (number == 15)
+            {
+                blacks.SetActive(true);
+                yield return new WaitForSeconds(0.7f);
+                anim8.SetTrigger("Lamp");
+                anim7.SetTrigger("la");
+                anim5.SetTrigger("wal");
+                StartCoroutine("MotherWalk");
+                yield return new WaitForSeconds(0.7f);
+                blacks.SetActive(false);
+                StopCoroutine("MotherS5Kit");
+
+            }
+            if (number == 26)
+            {
+                blacks.SetActive(true);
+                yield return new WaitForSeconds(0.7f);
+                anim8.SetTrigger("Lamp");
+                anim7.SetTrigger("la");
+                anim5.SetTrigger("Back1");
+                StartCoroutine("Mother");
+                yield return new WaitForSeconds(0.7f);
+                blacks.SetActive(false);
+                StopCoroutine("MotherS5Kit");
+
+            }
+
+        }
+    }
+    IEnumerator MotherS1tul()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(intrandom);
+            var number = Random.Range(1, 50);
+            print(number);
+            if (number == 31)
+            {
+                blacks.SetActive(true);
+                yield return new WaitForSeconds(0.7f);
+                anim8.SetTrigger("Lamp");
+                anim7.SetTrigger("la");
+                anim5.SetTrigger("tul2");
+                StartCoroutine("MotherS2tul");
+                yield return new WaitForSeconds(0.7f);
+                blacks.SetActive(false);
+                StopCoroutine("MotherS1tul");
+
+            }
+
+        }
+    }
+    IEnumerator MotherS2tul()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(intrandom);
+            var number = Random.Range(1, 50);
+            print(number);
+            if (number == 31)
+            {
+                blacks.SetActive(true);
+                yield return new WaitForSeconds(0.7f);
+                anim8.SetTrigger("Lamp");
+                anim7.SetTrigger("la");
+                anim5.SetTrigger("tul3");
+                StartCoroutine("MotherS3tul");
+                yield return new WaitForSeconds(0.7f);
+                blacks.SetActive(false);
+                StopCoroutine("MotherS2tul");
+
+            }
+
+        }
+    }
+    IEnumerator MotherS3tul()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(intrandom);
+            var number = Random.Range(1, 50);
+            print(number);
+            if (number == 11)
+            {
+                blacks.SetActive(true);
+                yield return new WaitForSeconds(0.7f);
+                anim8.SetTrigger("Lamp");
+                anim7.SetTrigger("la");
+                anim5.SetTrigger("wal");
+                StartCoroutine("MotherWalk");
+                yield return new WaitForSeconds(0.7f);
+                blacks.SetActive(false);
+                StopCoroutine("MotherS3tul");
+
+            }
+            if (number == 1)
+            {
+                blacks.SetActive(true);
+                yield return new WaitForSeconds(0.7f);
+                anim8.SetTrigger("Lamp");
+                anim7.SetTrigger("la");
+                anim5.SetTrigger("Back1");
+                StartCoroutine("Mother");
+                yield return new WaitForSeconds(0.7f);
+                blacks.SetActive(false);
+                StopCoroutine("MotherS3tul");
+
+            }
+            if (number == 46)
+            {
+                blacks.SetActive(true);
+                yield return new WaitForSeconds(0.7f);
+                anim8.SetTrigger("Lamp");
+                anim7.SetTrigger("la");
+                anim5.SetTrigger("kit1");
+                StartCoroutine("MotherS3kit");
+                yield return new WaitForSeconds(0.7f);
+                blacks.SetActive(false);
+                StopCoroutine("MotherS3tul");
+
+            }
+
         }
     }
     IEnumerator MotherS4()
