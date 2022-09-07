@@ -307,7 +307,7 @@ public class MotherScript : MonoBehaviour
             }
         }
     }
-    IEnumerator MotherS3Kit()
+    IEnumerator MotherS3kit()
     {
         while (true)
         {
@@ -321,16 +321,16 @@ public class MotherScript : MonoBehaviour
                 anim8.SetTrigger("Lamp");
                 anim7.SetTrigger("la");
                 anim5.SetTrigger("kit2");
-                StartCoroutine("MotherS4Kit");
+                StartCoroutine("MotherS4kit");
                 yield return new WaitForSeconds(0.7f);
                 blacks.SetActive(false);
-                StopCoroutine("MotherS3Kit");
+                StopCoroutine("MotherS3kit");
 
             }
            
         }
     }
-    IEnumerator MotherS4Kit()
+    IEnumerator MotherS4kit()
     {
         while (true)
         {
@@ -344,16 +344,16 @@ public class MotherScript : MonoBehaviour
                 anim8.SetTrigger("Lamp");
                 anim7.SetTrigger("la");
                 anim5.SetTrigger("kit3");
-                StartCoroutine("MotherS5Kit");
+                StartCoroutine("MotherS5kit");
                 yield return new WaitForSeconds(0.7f);
                 blacks.SetActive(false);
-                StopCoroutine("MotherS4Kit");
+                StopCoroutine("MotherS4kit");
 
             }
 
         }
     }
-    IEnumerator MotherS5Kit()
+    IEnumerator MotherS5kit()
     {
         while (true)
         {
@@ -370,7 +370,7 @@ public class MotherScript : MonoBehaviour
                 StartCoroutine("MotherS1tul");
                 yield return new WaitForSeconds(0.7f);
                 blacks.SetActive(false);
-                StopCoroutine("MotherS5Kit");
+                StopCoroutine("MotherS5kit");
 
             }
             if (number == 15)
@@ -532,7 +532,6 @@ public class MotherScript : MonoBehaviour
                 yield return new WaitForSeconds(0.7f);
                 anim8.SetTrigger("Lamp");
                 anim7.SetTrigger("la");
-                anim5.SetTrigger("Next5");
                 StartCoroutine("MotherWalk");
                 yield return new WaitForSeconds(0.7f);
                 blacks.SetActive(false);
