@@ -72,9 +72,9 @@ public class MotherScript : MonoBehaviour
     public GameObject MonOff;
     public GameObject Hand;
 
-    void Start()
+    void Awake()
     {
-        
+
 
         StartCoroutine("Mobila");
         
@@ -145,8 +145,9 @@ public class MotherScript : MonoBehaviour
 
             case 6:
                 SceneManager.LoadScene(3);
-                print("�����");
                 break;
+           
+
         }
         if (Input.GetKey(KeyCode.Alpha1)) 
         {
@@ -185,7 +186,7 @@ public class MotherScript : MonoBehaviour
         {
             yield return new WaitForSeconds(intrandom);
             var number = Random.Range(1, 50);
-            print(number);
+           
             if (number == 13 || number == 14 || number == 12)
             {
                 blacks.SetActive(true);
@@ -207,7 +208,7 @@ public class MotherScript : MonoBehaviour
         {
             yield return new WaitForSeconds(intrandom);
             var number = Random.Range(1, 50);
-            print(number);
+            
             if (number == 15)
             {
                 blacks.SetActive(true);
@@ -230,7 +231,7 @@ public class MotherScript : MonoBehaviour
         {
             yield return new WaitForSeconds(intrandom);
             var number = Random.Range(1, 50);
-            print(number);
+            
             if (number == 12)
             {
                 blacks.SetActive(true);
@@ -265,7 +266,7 @@ public class MotherScript : MonoBehaviour
         {
             yield return new WaitForSeconds(intrandom);
             var number = Random.Range(1, 50);
-            print(number);
+            
             if (number == 17)
             {
                 blacks.SetActive(true);
@@ -313,7 +314,7 @@ public class MotherScript : MonoBehaviour
         {
             yield return new WaitForSeconds(intrandom);
             var number = Random.Range(1, 50);
-            print(number);
+            
             if (number == 41)
             {
                 blacks.SetActive(true);
@@ -336,7 +337,7 @@ public class MotherScript : MonoBehaviour
         {
             yield return new WaitForSeconds(intrandom);
             var number = Random.Range(1, 50);
-            print(number);
+            
             if (number == 31)
             {
                 blacks.SetActive(true);
@@ -359,7 +360,7 @@ public class MotherScript : MonoBehaviour
         {
             yield return new WaitForSeconds(intrandom);
             var number = Random.Range(1, 50);
-            print(number);
+            
             if (number == 31)
             {
                 blacks.SetActive(true);
@@ -408,7 +409,7 @@ public class MotherScript : MonoBehaviour
         {
             yield return new WaitForSeconds(intrandom);
             var number = Random.Range(1, 50);
-            print(number);
+            
             if (number == 31)
             {
                 blacks.SetActive(true);
@@ -431,7 +432,7 @@ public class MotherScript : MonoBehaviour
         {
             yield return new WaitForSeconds(intrandom);
             var number = Random.Range(1, 50);
-            print(number);
+            
             if (number == 31)
             {
                 blacks.SetActive(true);
@@ -454,7 +455,7 @@ public class MotherScript : MonoBehaviour
         {
             yield return new WaitForSeconds(intrandom);
             var number = Random.Range(1, 50);
-            print(number);
+            
             if (number == 11)
             {
                 blacks.SetActive(true);
@@ -503,7 +504,7 @@ public class MotherScript : MonoBehaviour
         {
             yield return new WaitForSeconds(intrandom);
             var number = Random.Range(1, 50);
-            print(number);
+            
             if (number == 24)
             {
                 blacks.SetActive(true);
@@ -525,7 +526,7 @@ public class MotherScript : MonoBehaviour
         {
             yield return new WaitForSeconds(intrandom);
             var number = Random.Range(1, 50);
-            print(number);
+            
             if (number == 43)
             {
                 blacks.SetActive(true);
@@ -772,3 +773,5 @@ public class MotherScript : MonoBehaviour
         Player.SetActive(true);
     }
 }
+
+

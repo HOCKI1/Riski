@@ -6,38 +6,72 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] SpriteRenderer sp;
     private int state;
 
-    [SerializeField] float speed;
-    [SerializeField] float JumpForce;
+    [SerializeField] float maxSpeed = 50;
+    [SerializeField] float uskoreniya = 0.1f;
+    [SerializeField] float jump = 50;
+    float amplitudeX = 0;
+    float amplitudeZ = 0;
 
     Animator animator;
     Rigidbody rb;
     [SerializeField] bool isGrounded;
-
-    Vector3 direction;
     void Start()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
     }
-    void Update()
+    void FixedUpdate()
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         
-        direction = transform.TransformDirection(horizontal, 0, vertical);
         if (isGrounded == true && Input.GetKeyDown(KeyCode.Space))
         {
-            rb.velocity = new Vector3(0,15,0);
+            rb.AddForce(transform.up * jump, ForceMode.VelocityChange);
         }
 
-
-        if (horizontal >= .1)
+        if (horizontal >= 0)
         {
             sp.flipX = true;
+            if(isGrounded == true)
+            {
+                WalkingX(maxSpeed);
+
+            }
         }
-        if (horizontal <= -.1)
+        if (horizontal <= 0)
         {
             sp.flipX = false;
+            if (isGrounded == true)
+            {
+                WalkingX(-maxSpeed);
+            }
+        }
+        else {
+            rb.velocity = new Vector3(rb.velocity.x / 1.2f, rb.velocity.y, rb.velocity.z);
+            amplitudeX = 0;
+        }
+        if (vertical >= 0)
+        {
+            
+            if (isGrounded == true)
+            {
+                WalkingZ(maxSpeed);
+
+            }
+        }
+        if (vertical <= 0)
+        {
+            
+            if (isGrounded == true)
+            {
+                WalkingZ(-maxSpeed); 
+            }
+        }
+        else
+        {
+            rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, rb.velocity.z / 1.2f);
+            amplitudeZ = 0;
         }
         if (isGrounded == false)
         {           
@@ -58,10 +92,6 @@ public class PlayerMove : MonoBehaviour
        
         animator.SetInteger("state", state);
     }
-    void FixedUpdate()
-    {
-        rb.MovePosition(transform.position + speed * direction * Time.deltaTime);
-    }  
 
 
     void OnCollisionStay(Collision other)
@@ -86,7 +116,38 @@ public class PlayerMove : MonoBehaviour
     {
         isGrounded = false;
         state = 3;
-        StopCoroutine("gravitu");
+    }
+    void WalkingX(float speed)
+    {
+        if (speed > 0)
+        {
+            amplitudeX += uskoreniya;
+        }
+        else
+        {
+            amplitudeX -= uskoreniya;
+        }
+        if (System.Math.Abs(amplitudeX) > maxSpeed)
+        {
+            amplitudeX = speed;
+        }
+        rb.velocity = new Vector3(amplitudeX, rb.velocity.y, rb.velocity.z);
+    }
+    void WalkingZ(float speed)
+    {
+        if (speed > 0)
+        {
+            amplitudeZ += uskoreniya;
+        }
+        else
+        {
+            amplitudeZ -= uskoreniya;
+        }
+        if (System.Math.Abs(amplitudeZ) > maxSpeed)
+        {
+            amplitudeZ = speed;
+        }
+        rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, amplitudeZ);
     }
 }
 
