@@ -20,7 +20,7 @@ public class NPC : MonoBehaviour
         while(true) 
         {
             yield return new WaitForSeconds(Random.Range(1, 10));          
-            print(LR);
+            
             LR = Random.Range(1,10);
             if(LR >= 5) {
                 rb.AddForce(Vector3.left * Random.Range(700,1000));
