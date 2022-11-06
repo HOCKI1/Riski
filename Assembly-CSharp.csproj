@@ -56,6 +56,7 @@
      <Compile Include="Assets\HardLight2D\Demo\DemoScripts\PolyWobbler.cs" />
      <Compile Include="Assets\Scripts\PauseMenu.cs" />
      <Compile Include="Assets\Scripts\cfsds.cs" />
+     <Compile Include="Assets\Scenes\perehod.cs" />
      <None Include="Assets\Shaders\My First Lighting Shader.shader" />
      <None Include="Assets\PolygonPrototype\Shaders\Prototype_Glass_Global.shader" />
      <None Include="Assets\HardLight2D\ReadMe - FAQ.txt" />

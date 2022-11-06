@@ -35,6 +35,7 @@ public class Menu : MonoBehaviour
         exitA = Exit.GetComponent<Animator>();
         SettinfsA = Settinfs.GetComponent<Animator>();
 
+
     }
     void Update() 
     {
