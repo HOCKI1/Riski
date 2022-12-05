@@ -17,11 +17,11 @@ public class MotherScript : MonoBehaviour
     [Header("Animators")]
     [SerializeField] Animator anim;
     [SerializeField] Animator anim2;
-    [SerializeField] Animator anim3;
+    //[SerializeField] Animator anim3;
     [SerializeField] Animator anim4;
     [SerializeField] Animator anim5;
     [SerializeField] Animator anim6;
-    [SerializeField] Animator anim7;
+    //[SerializeField] Animator anim7;
     [SerializeField] Animator anim8;
     [Header("RandomInt")]
     [SerializeField] float intrandom;
@@ -82,7 +82,7 @@ public class MotherScript : MonoBehaviour
             one.volume = PlayerPrefs.GetFloat("Sound", 0.5f);
             two.volume = PlayerPrefs.GetFloat("Sound", 0.5f);
             three.volume = PlayerPrefs.GetFloat("Sound", 0.5f);
-            four.volume = PlayerPrefs.GetFloat("Sound", 0.5f);
+            //four.volume = PlayerPrefs.GetFloat("Sound", 0.5f);
             //five.volume = PlayerPrefs.GetFloat("Sound", 0.5f);
         }
     }
@@ -149,6 +149,50 @@ public class MotherScript : MonoBehaviour
            
 
         }
+        //if (Input.GetKeyDown(KeyCode.DownArrow)) {
+        //    bool close = false;
+        //    if(!close) {
+        //        Cam1();
+        //        close = true;
+        //    }
+        //    else if(close) {
+        //        Cam3();
+        //        close = false;
+        //    }
+        //    
+        //
+        //}
+        //if (Input.GetKeyDown(KeyCode.UpArrow)) {
+        //    monik();
+        //
+        //}
+        //if (Input.GetKeyDown(KeyCode.LeftArrow)) {
+        //    bool close = false;
+        //    if (!close) {
+        //        Bed1();
+        //        close = true;
+        //    }
+        //    else if (close) {
+        //        Bed3();
+        //        close = false;
+        //    }
+        //
+        //
+        //}
+        //if (Input.GetKeyDown(KeyCode.RightArrow)) {
+        //    bool close = false;
+        //    if (!close) {
+        //        Ober();
+        //        close = true;
+        //    }
+        //    else if(close) {
+        //       
+        //        Ober2();
+        //        close = false;
+        //    }
+        //
+        //
+        //}
         if (Input.GetKey(KeyCode.Alpha1)) 
         {
             Screncam1.SetActive(true);
@@ -192,7 +236,7 @@ public class MotherScript : MonoBehaviour
                 blacks.SetActive(true);
                 yield return new WaitForSeconds(0.7f);
                 anim8.SetTrigger("Lamp");
-                anim7.SetTrigger("la");
+                //anim7.SetTrigger("la");
                 anim5.SetTrigger("Next1");
                 StartCoroutine("MotherS");
                 yield return new WaitForSeconds(0.7f);
@@ -214,7 +258,7 @@ public class MotherScript : MonoBehaviour
                 blacks.SetActive(true);
                 yield return new WaitForSeconds(0.7f);
                 anim8.SetTrigger("Lamp");
-                anim7.SetTrigger("la");
+                //anim7.SetTrigger("la");
                 anim5.SetTrigger("Next2");
                 StartCoroutine("MotherS2");
                 yield return new WaitForSeconds(0.7f);
@@ -237,7 +281,7 @@ public class MotherScript : MonoBehaviour
                 blacks.SetActive(true);
                 yield return new WaitForSeconds(0.7f);
                 anim8.SetTrigger("Lamp");
-                anim7.SetTrigger("la");
+                //anim7.SetTrigger("la");
                 anim5.SetTrigger("Next3");
                 StartCoroutine("MotherS3");
                 yield return new WaitForSeconds(0.7f);
@@ -250,7 +294,7 @@ public class MotherScript : MonoBehaviour
                 blacks.SetActive(true);
                 yield return new WaitForSeconds(0.7f);
                 anim8.SetTrigger("Lamp");
-                anim7.SetTrigger("la");
+                //anim7.SetTrigger("la");
                 anim5.SetTrigger("Back2");
                 StartCoroutine("Mother");
                 yield return new WaitForSeconds(0.7f);
@@ -272,7 +316,7 @@ public class MotherScript : MonoBehaviour
                 blacks.SetActive(true);
                 yield return new WaitForSeconds(0.7f);
                 anim8.SetTrigger("Lamp");
-                anim7.SetTrigger("la");
+                //anim7.SetTrigger("la");
                 anim5.SetTrigger("Next4");
                 StartCoroutine("MotherS4");
                 yield return new WaitForSeconds(0.7f);
@@ -285,7 +329,7 @@ public class MotherScript : MonoBehaviour
                 blacks.SetActive(true);
                 yield return new WaitForSeconds(0.7f);
                 anim8.SetTrigger("Lamp");
-                anim7.SetTrigger("la");
+                //anim7.SetTrigger("la");
                 anim5.SetTrigger("kit1");
                 StartCoroutine("MotherS4kit");
                 yield return new WaitForSeconds(0.7f);
@@ -298,7 +342,7 @@ public class MotherScript : MonoBehaviour
                 blacks.SetActive(true);
                 yield return new WaitForSeconds(0.7f);
                 anim8.SetTrigger("Lamp");
-                anim7.SetTrigger("la");
+                //anim7.SetTrigger("la");
                 anim5.SetTrigger("tul1");
                 StartCoroutine("MotherS1tul");
                 yield return new WaitForSeconds(0.7f);
@@ -320,7 +364,7 @@ public class MotherScript : MonoBehaviour
                 blacks.SetActive(true);
                 yield return new WaitForSeconds(0.7f);
                 anim8.SetTrigger("Lamp");
-                anim7.SetTrigger("la");
+                //anim7.SetTrigger("la");
                 anim5.SetTrigger("kit2");
                 StartCoroutine("MotherS4kit");
                 yield return new WaitForSeconds(0.7f);
@@ -343,7 +387,7 @@ public class MotherScript : MonoBehaviour
                 blacks.SetActive(true);
                 yield return new WaitForSeconds(0.7f);
                 anim8.SetTrigger("Lamp");
-                anim7.SetTrigger("la");
+                //anim7.SetTrigger("la");
                 anim5.SetTrigger("kit3");
                 StartCoroutine("MotherS5kit");
                 yield return new WaitForSeconds(0.7f);
@@ -366,7 +410,7 @@ public class MotherScript : MonoBehaviour
                 blacks.SetActive(true);
                 yield return new WaitForSeconds(0.7f);
                 anim8.SetTrigger("Lamp");
-                anim7.SetTrigger("la");
+                //anim7.SetTrigger("la");
                 anim5.SetTrigger("tul1");
                 StartCoroutine("MotherS1tul");
                 yield return new WaitForSeconds(0.7f);
@@ -379,7 +423,7 @@ public class MotherScript : MonoBehaviour
                 blacks.SetActive(true);
                 yield return new WaitForSeconds(0.7f);
                 anim8.SetTrigger("Lamp");
-                anim7.SetTrigger("la");
+                //anim7.SetTrigger("la");
                 anim5.SetTrigger("wal");
                 StartCoroutine("MotherWalk");
                 yield return new WaitForSeconds(0.7f);
@@ -392,7 +436,7 @@ public class MotherScript : MonoBehaviour
                 blacks.SetActive(true);
                 yield return new WaitForSeconds(0.7f);
                 anim8.SetTrigger("Lamp");
-                anim7.SetTrigger("la");
+                //anim7.SetTrigger("la");
                 anim5.SetTrigger("Back1");
                 StartCoroutine("Mother");
                 yield return new WaitForSeconds(0.7f);
@@ -415,7 +459,7 @@ public class MotherScript : MonoBehaviour
                 blacks.SetActive(true);
                 yield return new WaitForSeconds(0.7f);
                 anim8.SetTrigger("Lamp");
-                anim7.SetTrigger("la");
+                //anim7.SetTrigger("la");
                 anim5.SetTrigger("tul2");
                 StartCoroutine("MotherS2tul");
                 yield return new WaitForSeconds(0.7f);
@@ -438,7 +482,7 @@ public class MotherScript : MonoBehaviour
                 blacks.SetActive(true);
                 yield return new WaitForSeconds(0.7f);
                 anim8.SetTrigger("Lamp");
-                anim7.SetTrigger("la");
+                //anim7.SetTrigger("la");
                 anim5.SetTrigger("tul3");
                 StartCoroutine("MotherS3tul");
                 yield return new WaitForSeconds(0.7f);
@@ -461,7 +505,7 @@ public class MotherScript : MonoBehaviour
                 blacks.SetActive(true);
                 yield return new WaitForSeconds(0.7f);
                 anim8.SetTrigger("Lamp");
-                anim7.SetTrigger("la");
+                //anim7.SetTrigger("la");
                 anim5.SetTrigger("wal");
                 StartCoroutine("MotherWalk");
                 yield return new WaitForSeconds(0.7f);
@@ -474,7 +518,7 @@ public class MotherScript : MonoBehaviour
                 blacks.SetActive(true);
                 yield return new WaitForSeconds(0.7f);
                 anim8.SetTrigger("Lamp");
-                anim7.SetTrigger("la");
+                //anim7.SetTrigger("la");
                 anim5.SetTrigger("Back1");
                 StartCoroutine("Mother");
                 yield return new WaitForSeconds(0.7f);
@@ -487,7 +531,7 @@ public class MotherScript : MonoBehaviour
                 blacks.SetActive(true);
                 yield return new WaitForSeconds(0.7f);
                 anim8.SetTrigger("Lamp");
-                anim7.SetTrigger("la");
+                //anim7.SetTrigger("la");
                 anim5.SetTrigger("kit1");
                 StartCoroutine("MotherS3kit");
                 yield return new WaitForSeconds(0.7f);
@@ -510,7 +554,7 @@ public class MotherScript : MonoBehaviour
                 blacks.SetActive(true);
                 yield return new WaitForSeconds(0.7f);
                 anim8.SetTrigger("Lamp");
-                anim7.SetTrigger("la");
+                //anim7.SetTrigger("la");
                 StartCoroutine("MotherS5");
                 yield return new WaitForSeconds(0.7f);
                 blacks.SetActive(false);
@@ -532,7 +576,7 @@ public class MotherScript : MonoBehaviour
                 blacks.SetActive(true);
                 yield return new WaitForSeconds(0.7f);
                 anim8.SetTrigger("Lamp");
-                anim7.SetTrigger("la");
+                //anim7.SetTrigger("la");
                 StartCoroutine("MotherWalk");
                 yield return new WaitForSeconds(0.7f);
                 blacks.SetActive(false);
@@ -548,7 +592,7 @@ public class MotherScript : MonoBehaviour
         {
             anim5.SetTrigger("wal");
             anim8.SetTrigger("Lamp");
-            anim7.SetTrigger("la");
+            //anim7.SetTrigger("la");
 
             yield return new WaitForSeconds(11);
             Motherintheroom = true;

@@ -1,0 +1,2 @@
+D:\fnam Repesotory\sos\Riski\obj\Debug\AllIn1SpriteShaderAssembly.csproj.AssemblyReference.cache
+D:\fnam Repesotory\sos\Riski\obj\Debug\AllIn1SpriteShaderAssembly.csproj.CoreCompileInputs.cache
