@@ -3202,6 +3202,7 @@ GameObject:
   - component: {fileID: 443867730}
   - component: {fileID: 443867729}
   - component: {fileID: 443867728}
+  - component: {fileID: 443867732}
   m_Layer: 0
   m_Name: fade
   m_TagString: Untagged
@@ -3307,8 +3308,21 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
+--- !u!114 &443867732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443867726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1291ccb05fc65d4d99b5ad1381342f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loader: {fileID: 1666826245}
 --- !u!1 &444338437
 GameObject:
   m_ObjectHideFlags: 0
@@ -8375,7 +8389,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1666826245}
           m_TargetAssemblyTypeName: Menu, Assembly-CSharp
-          m_MethodName: Restart
+          m_MethodName: Playstart
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -8993,26 +9007,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1287428098}
-  - component: {fileID: 1287428097}
   m_Layer: 0
   m_Name: loader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1287428097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1287428096}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1291ccb05fc65d4d99b5ad1381342f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_IsActive: 1
 --- !u!4 &1287428098
 Transform:
   m_ObjectHideFlags: 0
@@ -10973,6 +10974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d94a79cc4b91c244a94dec6e985e24c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  perehod: {fileID: 443867728}
   SettingsObject: {fileID: 1887520174}
   Play: {fileID: 1192757370}
   Exit: {fileID: 621644400}

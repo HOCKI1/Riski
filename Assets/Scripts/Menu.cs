@@ -7,6 +7,7 @@ using System.Drawing;
 
 public class Menu : MonoBehaviour
 {
+    [SerializeField] Animator perehod;
     [SerializeField] GameObject SettingsObject;
     [SerializeField] GameObject Play;
     [SerializeField] GameObject Exit;
@@ -42,8 +43,15 @@ public class Menu : MonoBehaviour
         
         MusicMenu[i].volume = MusicS.value;
     }
+
+    public void Playstart()
+    {
+        perehod.SetTrigger("start");
+
+    }
     public void Restart()
     {
+        print("Restart");
         Saving();
         SceneManager.LoadScene(1);
     }
