@@ -25,7 +25,7 @@ public class Menu : MonoBehaviour
     [SerializeField] Animator SettinfsA;
     [SerializeField] Animator exitA;
     void Start() {
-        i = Random.Range(0, 8);
+        i = Random.Range(0, MusicMenu.Length);
         MusicMenu[i].Play();
         if (PlayerPrefs.HasKey("Music") && PlayerPrefs.HasKey("Sound"))
         {

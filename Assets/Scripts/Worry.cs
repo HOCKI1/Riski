@@ -5,10 +5,11 @@ using UnityEngine;
 public class Worry : MonoBehaviour
 {
     [SerializeField] float worrypoint;
+    [SerializeField] float speed;
     bool camm;
     void Start()
     {
-        worrypoint = 0;
+        worrypoint = 1;
         camm = false;
 
     }
@@ -26,15 +27,16 @@ public class Worry : MonoBehaviour
 
     void Update()
     {
-         if (camm = true)
+         if (camm == false)
          {
-            worrypoint += Time.deltaTime;
-
+            worrypoint += Time.deltaTime / Mathf.Sqrt(speed*1.5f) ;
+            worrypoint = Mathf.Clamp(worrypoint, 0.09f, 1);
          }
         
-        if (camm = false)
+        if (camm)
          {
-            worrypoint -= Time.deltaTime;
+            worrypoint -= Time.deltaTime /speed ;
+            worrypoint = Mathf.Clamp(worrypoint, 0.09f, 1);
 
          }
     }
