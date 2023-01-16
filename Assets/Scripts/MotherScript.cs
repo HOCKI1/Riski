@@ -23,6 +23,9 @@ public class MotherScript : MonoBehaviour
     [SerializeField] Animator anim6;
     //[SerializeField] Animator anim7;
     [SerializeField] Animator anim8;
+
+    [SerializeField] float speedAnim;
+    [SerializeField] Worry worry;
     [Header("RandomInt")]
     [SerializeField] float intrandom;
     [Header("ButtonsOber")]
@@ -88,7 +91,8 @@ public class MotherScript : MonoBehaviour
     }
     private void Update()
     {
-        
+        speedAnim = worry.worrypoint;
+        anim.speed = speedAnim;
         hous += Time.deltaTime;
         offM = Hand.GetComponent<Hand>().offM;
         if (hous >= 80f)
@@ -101,15 +105,15 @@ public class MotherScript : MonoBehaviour
                 StartCoroutine("Mother");
             }
         }
-        if (Points == true)
+        if (Points)
         { 
             slider.value += Time.deltaTime * TimePoint; 
         }
-        else 
+        if (!Points)
         {
             slider.value -= Time.deltaTime * TimePoint;
         }
-        if (Motherintheroom == true)
+        if (Motherintheroom )
         {
             Mon.interactable = false;
             cam2.interactable = false;
@@ -597,7 +601,7 @@ public class MotherScript : MonoBehaviour
             yield return new WaitForSeconds(11);
             Motherintheroom = true;
             
-            if (offM == true && PlayerInBed == true)
+            if (offM && PlayerInBed)
             {
                 anim5.SetTrigger("Idle");
                 yield return new WaitForSeconds(5);
@@ -624,7 +628,7 @@ public class MotherScript : MonoBehaviour
         mobilasvonit = true;
         anim6.SetTrigger("j");
         Mobil.Play();
-        if(vstal == false)
+        if(!vstal)
         {
             Buttont.interactable = true;
         }
@@ -633,7 +637,7 @@ public class MotherScript : MonoBehaviour
     IEnumerator Mobilavo()
     {
         yield return new WaitForSeconds(8);
-        if (mobilasvonit == true)
+        if (mobilasvonit)
         {
             StopCoroutine("MotherS");
             StopCoroutine("Mother");
@@ -701,12 +705,12 @@ public class MotherScript : MonoBehaviour
     }
     public void monik()
     {
-        if (offM == true) 
+        if (offM) 
         {           
             anim.SetTrigger("mon"); 
             anim4.SetTrigger("go");
         }
-        else
+        if (!offM) 
         {
            
             anim4.SetTrigger("go2");
@@ -734,7 +738,7 @@ public class MotherScript : MonoBehaviour
     }
     public void Offall()
     {
-        if(bed == true && camm == false && obernut == false)
+        if(bed && !camm && !obernut)
         {
             Bed2.interactable = true;
             cam2.interactable = false;
@@ -746,7 +750,7 @@ public class MotherScript : MonoBehaviour
             Mon.interactable = false;
             Player.SetActive(false);
         }
-        if(bed == false && camm == false && obernut == false)
+        if(!bed && !camm && !obernut )
         {
             Bed2.interactable = false;
             cam2.interactable = false;
@@ -759,7 +763,7 @@ public class MotherScript : MonoBehaviour
             Points = false;
             Player.SetActive(false);
         }
-        if(camm == true && bed == false && obernut == false)
+        if(camm  && !bed  && !obernut)
         {
             Bed2.interactable = false;
             cam2.interactable = true;
@@ -772,7 +776,7 @@ public class MotherScript : MonoBehaviour
             Points = false;
             Player.SetActive(false);
         }
-        if(obernut == true && bed == false && camm == false)
+        if(obernut  && !bed  && !camm )
         {
             Bed2.interactable = false;
             cam2.interactable = false;
@@ -790,19 +794,19 @@ public class MotherScript : MonoBehaviour
     }
     public void Onall()
     {
-        if(offM == true)
+        if(offM)
         {
             Points = false;
         }
-        else
+        if(!offM)
         {
             Points = true;
         }
-        if (mobilasvonit == true)
+        if (mobilasvonit)
         {
             Buttont.interactable = true;
         }
-        else
+        if (!mobilasvonit)
         {
             Buttont.interactable = false;
         }
