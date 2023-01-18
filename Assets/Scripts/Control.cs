@@ -36,6 +36,19 @@ public class Control : MonoBehaviour
         {
             rb.AddForce(transform.up * jamp, ForceMode.VelocityChange);
         }
+
+        if(Input.GetKey(KeyCode.RightArrow))
+        {
+            Walking(maxSpeed);
+        }
+        else if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            Walking(-maxSpeed);
+        } else
+        {
+            rb.velocity = new Vector3(rb.velocity.x / 1.2f, rb.velocity.y, 0);
+            amplitude = 0;
+        }
     }
 
     void Walking(float speed)

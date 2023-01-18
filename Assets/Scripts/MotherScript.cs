@@ -218,6 +218,60 @@ public class MotherScript : MonoBehaviour
             Screncam3.SetActive(true);
 
         }
+
+        if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            Mobil.Stop();
+            mobilasvonit = false;
+            Buttont.interactable = false;
+            anim4.SetTrigger("mobil");
+            anim.SetTrigger("Mobil");
+            anim6.SetTrigger("d");
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftArrow))
+        {
+            anim.SetTrigger("Hide");
+            BedG.SetActive(false);
+            BedG2.SetActive(true);
+            bed = true;
+            vstal = true;
+        }
+
+        if (Input.GetKeyUp(KeyCode.DownArrow))
+        {
+            anim.SetTrigger("check");
+            camG2.SetActive(true);
+            camG.SetActive(false);
+            camm = true;
+            vstal = true;
+        }
+
+        if (Input.GetKeyUp(KeyCode.UpArrow))
+        {
+            if (offM) 
+            {           
+                anim.SetTrigger("mon"); 
+                anim4.SetTrigger("go");
+            }
+            if (!offM) 
+            {
+           
+               anim4.SetTrigger("go2");
+                anim.SetTrigger("mon");
+
+            }      
+        }
+
+        if (Input.GetKeyUp(KeyCode.RightArrow))
+        {
+            anim.SetTrigger("Abort");
+            ObernutG.SetActive(false);
+            ObernutG2.SetActive(true);
+            obernut = true;
+            vstal = true;
+            
+        }
     }
     public void PIBT()
     {
@@ -734,7 +788,6 @@ public class MotherScript : MonoBehaviour
         anim4.SetTrigger("mobil");
         anim.SetTrigger("Mobil");
         anim6.SetTrigger("d");
-        
     }
     public void Offall()
     {
