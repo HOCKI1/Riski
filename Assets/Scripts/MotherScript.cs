@@ -61,6 +61,9 @@ public class MotherScript : MonoBehaviour
     [SerializeField] GameObject Screncam1;
     [SerializeField] GameObject Screncam2;
     [SerializeField] GameObject Screncam3;
+    [SerializeField] GameObject room2;
+    [SerializeField] GameObject room3;
+    
     //[SerializeField] AudioSource five;
     [Header("Bools")]
     bool offM;
@@ -197,27 +200,34 @@ public class MotherScript : MonoBehaviour
         //
         //
         //}
-        if (Input.GetKey(KeyCode.Alpha1)) 
+  
+
+       if (Input.GetKey(KeyCode.Alpha1))
         {
             Screncam1.SetActive(true);
             Screncam2.SetActive(false);
             Screncam3.SetActive(false);
-
+            room2.SetActive(false);
+            room3.SetActive(false);
         }
         if (Input.GetKey(KeyCode.Alpha2))
         {
             Screncam1.SetActive(false);
             Screncam2.SetActive(true);
             Screncam3.SetActive(false);
-
+            room2.SetActive(true);
+            room3.SetActive(false);
         }
         if (Input.GetKey(KeyCode.Alpha3))
         {
             Screncam1.SetActive(false);
             Screncam2.SetActive(false);
             Screncam3.SetActive(true);
+            room2.SetActive(false);
+            room3.SetActive(true);
 
         }
+
 
         if (Input.GetKeyUp(KeyCode.LeftControl))
         {
@@ -775,10 +785,18 @@ public class MotherScript : MonoBehaviour
     public void noutclose()
     {
         anim2.SetTrigger("close");
+        room2.SetActive(false);
+        room3.SetActive(false);
+
     }
     public void noutopen()
     {
         anim2.SetTrigger("open");
+        room2.SetActive(false);
+        room3.SetActive(false);
+        Screncam1.SetActive(true);
+        Screncam2.SetActive(false);
+        Screncam3.SetActive(false);
     }
     public void Mobilaa()
     {
