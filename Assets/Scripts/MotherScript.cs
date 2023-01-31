@@ -70,9 +70,9 @@ public class MotherScript : MonoBehaviour
     bool PlayerInBed;
     bool Motherintheroom;
     public bool mobilasvonit;
-    bool camm;
-    bool bed;
-    bool obernut;
+    bool camm = false;
+    bool bed = false;
+    bool obernut = false;
     bool vstal;
     
     public GameObject MonOff;
@@ -241,20 +241,42 @@ public class MotherScript : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.LeftArrow))
         {
-            anim.SetTrigger("Hide");
-            BedG.SetActive(false);
-            BedG2.SetActive(true);
-            bed = true;
-            vstal = true;
+            if(bed == false)
+            {
+                anim.SetTrigger("Hide");
+                BedG.SetActive(false);
+                BedG2.SetActive(true);
+                bed = true;
+                vstal = true;
+            }
+            else
+            {
+                anim.SetTrigger("Hide2");
+                BedG.SetActive(true);
+                BedG2.SetActive(false);
+                bed = false;
+                vstal = false;
+            }
         }
 
         if (Input.GetKeyUp(KeyCode.DownArrow))
         {
-            anim.SetTrigger("check");
-            camG2.SetActive(true);
-            camG.SetActive(false);
-            camm = true;
-            vstal = true;
+            if(camm == false)
+            {
+                anim.SetTrigger("check");
+                camG2.SetActive(true);
+                camG.SetActive(false);
+                camm = true;
+                vstal = true;
+            }
+            else
+            {
+                anim.SetTrigger("check2");
+                camG2.SetActive(false);
+                camG.SetActive(true);
+                camm = false;
+                vstal = false;
+            }
         }
 
         if (Input.GetKeyUp(KeyCode.UpArrow))
@@ -275,11 +297,23 @@ public class MotherScript : MonoBehaviour
 
         if (Input.GetKeyUp(KeyCode.RightArrow))
         {
-            anim.SetTrigger("Abort");
-            ObernutG.SetActive(false);
-            ObernutG2.SetActive(true);
-            obernut = true;
-            vstal = true;
+            if(obernut == false)
+            {
+                anim.SetTrigger("Abort");
+                ObernutG.SetActive(false);
+                ObernutG2.SetActive(true);
+                obernut = true;
+                vstal = true;
+            }
+            else
+            {
+                anim.SetTrigger("abort 2");
+                ObernutG2.SetActive(false);
+                ObernutG.SetActive(true);
+                obernut = false;
+                vstal = false;
+            }
+
             
         }
     }
