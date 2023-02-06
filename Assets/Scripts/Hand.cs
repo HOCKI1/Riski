@@ -6,16 +6,14 @@ public class Hand : MonoBehaviour
 {
     public bool offM;
     public GameObject MonOff;
-    public Animator anim;
     public Animator anim4;
     public void Mon()
     {
-        if (offM == true)
+        if (offM)
         {
             MonOff.SetActive(false);
             offM = false; 
 
-            print("dsdssssdsds");
         }
         else
         {

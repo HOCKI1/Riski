@@ -282,14 +282,15 @@ public class MotherScript : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.UpArrow))
         {
             if (offM) 
-            {           
+            {
+                
                 anim.SetTrigger("mon"); 
                 anim4.SetTrigger("go");
             }
             if (!offM) 
             {
-           
-               anim4.SetTrigger("go2");
+                
+                anim4.SetTrigger("go2");
                 anim.SetTrigger("mon");
 
             }      
