@@ -60,6 +60,7 @@
     <Compile Include="Assets\Scripts\FireBallManager.cs" />
     <Compile Include="Assets\Scripts\MotherScript.cs" />
     <Compile Include="Assets\Scripts\FieldView.cs" />
+    <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\Sounds.cs" />
     <Compile Include="Assets\Scripts\Worry.cs" />
     <Compile Include="Assets\Scripts\Control.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Assets\Scripts\NPC.cs" />
     <Compile Include="Assets\Scripts\Settings.cs" />
     <Compile Include="Assets\Scenes\perehod.cs" />
+    <Compile Include="Assets\Scripts\Mother.cs" />
     <Compile Include="Assets\Scripts\sdsd.cs" />
     <Compile Include="Assets\Scripts\Move.cs" />
     <Compile Include="Assets\Scripts\FireBall.cs" />
@@ -81,6 +83,7 @@
     <Compile Include="Assets\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\cfsds.cs" />
     <Compile Include="Assets\Scripts\loaderscirpt.cs" />
+    <Compile Include="Assets\Scripts\UI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shaders\My First Lighting Shader.shader" />
