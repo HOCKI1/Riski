@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\miniplayloader.cs" />
     <Compile Include="Assets\Scripts\FireBallManager.cs" />
+    <Compile Include="Assets\Scripts\UI.cs" />
     <Compile Include="Assets\Scripts\MotherScript.cs" />
     <Compile Include="Assets\Scripts\FieldView.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
@@ -83,7 +84,6 @@
     <Compile Include="Assets\Scripts\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\cfsds.cs" />
     <Compile Include="Assets\Scripts\loaderscirpt.cs" />
-    <Compile Include="Assets\Scripts\UI.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Shaders\My First Lighting Shader.shader" />
