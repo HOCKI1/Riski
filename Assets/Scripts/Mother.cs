@@ -13,8 +13,8 @@ public class Mother : MonoBehaviour
     [SerializeField] int secondsInOneHour;
 
 
-   // private float randNum = new Random.Range(1,3);
-    //private float Random.Range(1,3)2 = Random.Range(0, 15);
+   // private float randNum = new Random.Range(1,24);
+    //private float Random.Range(1,24)2 = Random.Range(0, 15);
     float timer;
 
     void Start()
@@ -74,27 +74,17 @@ public class Mother : MonoBehaviour
             timer = 0;
         }
     }
-
-    IEnumerator motherMoving()
+    enum rooms
     {
-        int randmove = Random.Range(0,3);
-        switch(randmove)
-        {
-            case 0:
-                Invoke("RoomMother", Random.Range(1,3));                
-                break;
-            case 1:
-              
-                Invoke("RoomPlayer", Random.Range(1,3));
-                break;
-            case 2:
-                Invoke("Bathroom", Random.Range(1,3));
-                break;
-            case 3:
-                Invoke("Kitchen", Random.Range(1,3));
-                break;
-        }
-        yield return new WaitForSeconds(Random.Range(1,3));
+        RoomMother,
+        RoomPlayer,
+        Bathroom,
+        Kitchen
+    }
+    void motherMoving()
+    {
+        string randmove = ((rooms)Random.Range(0,3)).ToString();
+        Invoke(randmove, Random.Range(1, 24));
     }
 
     public void RoomMother()
@@ -107,43 +97,43 @@ public class Mother : MonoBehaviour
     {
         stageroom = 0;
         room = "RoomMother";
-        Invoke("RM2", Random.Range(1,3));
+        Invoke("RM2", Random.Range(1,24));
 
     }
     void RM2()
     {
         stageroom++;
-        if (/*Random.Range(0, 1) == 0*/ false)
+        if (Random.Range(0, 1) == 0)
         {
-            Invoke("RM1", Random.Range(1,3));
+            Invoke("RM1", Random.Range(1,24));
         }
         else
         {
-            Invoke("RM3", Random.Range(1,3));
+            Invoke("RM3", Random.Range(1,24));
         }
     }
     void RM3()
     {
         stageroom++;
-        Invoke("RM4", Random.Range(1,3));
+        Invoke("RM4", Random.Range(1,24));
     }
     void RM4()
     {
         stageroom++;
-        if (/*Random.Range(0, 1) == 0*/ false)
+        if (Random.Range(0, 1) == 0)
         {
-            Invoke("RM1", Random.Range(1,3));
+            Invoke("RM1", Random.Range(1,24));
         }
         else
         {
-            Invoke("RM5", Random.Range(1,3));
+            Invoke("RM5", Random.Range(1,24));
         }
 
     }
     void RM5()
     {
         stageroom++;
-        Invoke("Hallway", Random.Range(1,3));
+        Invoke("Hallway", Random.Range(1,24));
     }
     public void RoomPlayer()
     {
@@ -175,17 +165,17 @@ public class Mother : MonoBehaviour
     {
         stageroom = 0;
         room = "Bathroom";
-        Invoke("BR2", Random.Range(1,3));
+        Invoke("BR2", Random.Range(1,24));
     }
     void BR2()
     {
         stageroom++;
-        Invoke("BR3", Random.Range(1,3));
+        Invoke("BR3", Random.Range(1,24));
     }
     void BR3()
     {
         stageroom++;
-        Invoke("Hallway", Random.Range(1,3));
+        Invoke("Hallway", Random.Range(1,24));
 
     }
     public void Kitchen()
@@ -197,25 +187,24 @@ public class Mother : MonoBehaviour
     {
         room = "Kitchen";
         stageroom = 0;
-        Invoke("K2", Random.Range(1,3));
+        Invoke("K2", Random.Range(1,24));
     }
     void K2()
     {
         stageroom++;
-        Invoke("K3", Random.Range(1,3));
+        Invoke("K3", Random.Range(1,24));
     }
     void K3()
     {
         stageroom++;
-        Invoke("Hallway", Random.Range(1,3));
+        Invoke("Hallway", Random.Range(1,24));
     }
    
     public void Hallway()
     {
         room = "Hallway";
         stageroom = 0;
-        StopCoroutine(motherMoving());
-        StartCoroutine(motherMoving());
+        motherMoving();
         
 
     }
