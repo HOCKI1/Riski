@@ -103,7 +103,7 @@ public class Mother : MonoBehaviour
     void RM2()
     {
         stageroom++;
-        if (Random.Range(0, 1) == 0)
+        if (/*Random.Range(0, 1) == 0*/ false)
         {
             Invoke("RM1", Random.Range(1,24));
         }
@@ -120,7 +120,7 @@ public class Mother : MonoBehaviour
     void RM4()
     {
         stageroom++;
-        if (Random.Range(0, 1) == 0)
+        if (/*Random.Range(0, 1) == 0*/ false)
         {
             Invoke("RM1", Random.Range(1,24));
         }
